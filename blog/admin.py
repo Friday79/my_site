@@ -21,5 +21,7 @@ class CommentAdmin(admin.ModelAdmin):
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):
-        queryset.update(approved=True)
-# Register your models here.
+        queryset.update(approved=True)  
+
+
+
