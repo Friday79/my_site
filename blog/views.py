@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.http import JsonResponse
 from .models import Post
 from .forms import CommentForm
 
@@ -30,6 +31,9 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
+                "upvotes": post.upvotes,
+                "downvotes": post.downvotes,
+                "total_votes": post.total_votes(),
                 "comment_form": CommentForm()
             },
         )
@@ -65,6 +69,22 @@ class PostDetail(View):
             },
         )
 
+def post(self, request, slug, *args, **kwargs):
+        """Handles upvote/downvote actions via AJAX"""
+        post = get_object_or_404(Post, slug=slug)
+
+        action = request.POST.get('action')
+        if action == 'upvote':
+            post.upvotes += 1
+        elif action == 'downvote':
+            post.downvotes += 1
+        post.save()
+
+        return JsonResponse({
+            'upvotes': post.upvotes,
+            'downvotes': post.downvotes,
+            'total_votes': post.total_votes()
+        })
 
 class PostLike(View):
     
@@ -76,4 +96,18 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+class PostUpvote(View):
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug, status=1)
+        if request.user.is_authenticated:
+            post.likes.add(request.user)
+        return JsonResponse({"success": True, "likes_count": post.likes.count()})
+
+class PostDownvote(View):
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug, status=1)
+        if request.user.is_authenticated:
+            post.likes.remove(request.user)
+        return JsonResponse({"success": True, "likes_count": post.likes.count()})
 
