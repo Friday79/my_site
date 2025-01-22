@@ -7,4 +7,5 @@ urlpatterns = [
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
     path('upvote/<slug:slug>', views.PostUpvote.as_view(), name='post_upvote'),
     path('downvote/<slug:slug>', views.PostDownvote.as_view(), name='post_downvote'),
+    path("category/<slug:slug>/", views.CategoryPostList.as_view(), name="category_posts"),
 ]
