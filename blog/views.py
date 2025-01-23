@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
-from .models import Post
+from .models import Post, Category
 from .forms import CommentForm
 
 
@@ -69,7 +69,7 @@ class PostDetail(View):
             },
         )
 
-def post(self, request, slug, *args, **kwargs):
+    def post(self, request, slug, *args, **kwargs):
         """Handles upvote/downvote actions via AJAX"""
         post = get_object_or_404(Post, slug=slug)
 
@@ -86,6 +86,7 @@ def post(self, request, slug, *args, **kwargs):
             'total_votes': post.total_votes()
         })
 
+
 class PostLike(View):
     
     def post(self, request, slug, *args, **kwargs):
@@ -97,6 +98,7 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
 class PostUpvote(View):
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug, status=1)
@@ -104,10 +106,27 @@ class PostUpvote(View):
             post.likes.add(request.user)
         return JsonResponse({"success": True, "likes_count": post.likes.count()})
 
+
 class PostDownvote(View):
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug, status=1)
         if request.user.is_authenticated:
             post.likes.remove(request.user)
         return JsonResponse({"success": True, "likes_count": post.likes.count()})
+
+
+class CategoryPostList(View):
+    """View for listing posts under a specific category"""
+    def get(self, request, slug, *args, **kwargs):
+        category = get_object_or_404(Category, slug=slug)
+        posts = Post.objects.filter(category=category, status=1).order_by("-created_on")
+
+        return render(
+            request,
+            "category_posts.html",
+            {
+                "category": category,
+                "posts": posts,
+            },
+        )
 
