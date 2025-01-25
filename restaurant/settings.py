@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [https://restaurant-bliss-d6d838618de9.herokuapp.com/]
+ALLOWED_HOSTS = ['restaurant-bliss-d6d838618de9.herokuapp.com']
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
