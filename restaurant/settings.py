@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['restaurant-bliss-d6d838618de9.herokuapp.com']
+ALLOWED_HOSTS = ['restaurant.herokuapp.com', 'localhost:8000', '127.0.0.1']
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'crispy_forms',
+    'crispy_bootstrap5',
     'blog',
 ]
 
@@ -76,6 +77,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
