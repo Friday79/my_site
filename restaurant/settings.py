@@ -29,9 +29,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['restaurant-bliss-d6d838618de9.herokuapp.com', 'localhost', '127.0.0.1' ]
+ALLOWED_HOSTS = ['restaurant.herokuapp.com', 'localhost', '127.0.0.1' ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -75,7 +75,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 
-CRISPY_TEMPLATE_PACK = 'boostrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
