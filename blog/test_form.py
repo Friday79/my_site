@@ -11,3 +11,4 @@ class TestForms(TestCase):
         form = CommentForm(data={})
         self.assertFalse(form.is_valid())
         self.assertIn("body", form.errors)
+        

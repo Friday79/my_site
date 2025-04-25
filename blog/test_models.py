@@ -40,3 +40,4 @@ class TestModels(TestCase):
     def test_post_number_of_likes(self):
         self.post.likes.add(self.user)
         self.assertEqual(self.post.number_of_likes(), 1)
+        
