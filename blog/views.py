@@ -54,8 +54,9 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.success(request, 'Your comment was submitted successfully.')
         else:
-            comment_form = CommentForm()
+            messages.error(request, 'There was a problem submitting your comment.')
 
         return render(
             request,
@@ -129,4 +130,3 @@ class CategoryPostList(View):
                 "posts": posts,
             },
         )
-
