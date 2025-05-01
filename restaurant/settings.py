@@ -78,8 +78,8 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
-CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
@@ -128,6 +128,7 @@ WSGI_APPLICATION = 'restaurant.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
+
 
 DATABASES = {
     'default': dj_database_url.config(
