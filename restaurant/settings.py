@@ -116,6 +116,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'restaurant.wsgi.application'
 
 
+
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -127,9 +129,9 @@ if 'test' in sys.argv:
     }
 }
 
-#DATABASES = {
-#    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#}
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
 
 
