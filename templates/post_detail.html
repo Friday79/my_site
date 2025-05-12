@@ -58,6 +58,27 @@
                             {{ total_comments }}</strong>
                         {% endwith %}
                     </div>
+                    <div class="col-1">
+                        <strong class="text-secondary">
+                        <button id="upvote-btn" class="btn btn-sm btn-outline-success" data-action="upvote" data-slug="{{ post.slug }}">
+                        <i class="fas fa-thumbs-up"></i>
+                        </button>
+                        <span id="upvotes-count">{{ post.upvotes }}</span>
+                        </strong>
+                    </div>
+                    <div class="col-1">
+                        <strong class="text-secondary">
+                        <button id="downvote-btn" class="btn btn-sm btn-outline-danger" data-action="downvote" data-slug="{{ post.slug }}">
+                        <i class="fas fa-thumbs-down"></i>
+                        </button>
+                        <span id="downvotes-count">{{ post.downvotes }}</span>
+                        </strong>
+                    </div>
+                    <div class="col-2">
+                        <strong class="text-secondary">
+                        Score: <span id="total-votes">{{ post.total_votes }}</span>
+                        </strong>
+                    </div>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from .models import Post, Category
 from .forms import CommentForm
+from django.contrib import messages
 
 
 class PostList(generic.ListView):
@@ -41,16 +42,27 @@ class PostDetail(View):
     
     
     def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
 
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
+    # Handle vote AJAX request
+        if request.headers.get("x-requested-with") == "XMLHttpRequest":
+            action = request.POST.get("action")
+            if action == 'upvote':
+                post.upvotes += 1
+            elif action == 'downvote':
+                post.downvotes += 1
+            post.save()
+            return JsonResponse({
+                'upvotes': post.upvotes,
+                'downvotes': post.downvotes,
+                'total_votes': post.total_votes()
+            })
 
+    # Handle comment form
         comments = post.comments.filter(approved=True).order_by("-created_on")
-        liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
-            liked = True
-
+        liked = post.likes.filter(id=request.user.id).exists()
         comment_form = CommentForm(data=request.POST)
+
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
@@ -58,8 +70,10 @@ class PostDetail(View):
             comment.post = post
             comment.save()
             messages.success(request, 'Your comment was submitted successfully.')
+            commented = True
         else:
             messages.error(request, 'There was a problem submitting your comment.')
+            commented = False
 
         return render(
             request,
@@ -67,28 +81,15 @@ class PostDetail(View):
             {
                 "post": post,
                 "comments": comments,
-                "commented": True,
+                "commented": commented,
                 "comment_form": comment_form,
-                "liked": liked
+                "liked": liked,
+                "upvotes": post.upvotes,
+                "downvotes": post.downvotes,
+                "total_votes": post.total_votes(),
             },
         )
 
-    def post(self, request, slug, *args, **kwargs):
-        """Handles upvote/downvote actions via AJAX"""
-        post = get_object_or_404(Post, slug=slug)
-
-        action = request.POST.get('action')
-        if action == 'upvote':
-            post.upvotes += 1
-        elif action == 'downvote':
-            post.downvotes += 1
-        post.save()
-
-        return JsonResponse({
-            'upvotes': post.upvotes,
-            'downvotes': post.downvotes,
-            'total_votes': post.total_votes()
-        })
 
 
 class PostLike(View):
