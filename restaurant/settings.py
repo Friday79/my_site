@@ -34,7 +34,7 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['restaurant-bliss-d6d838618de9.herokuapp.com', '127.0.0.1:8000', 'localhost']
+ALLOWED_HOSTS = ['restaurant-bliss1-d6d838618de9.herokuapp.com', '127.0.0.1:8000', 'localhost']
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
