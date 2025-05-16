@@ -14,6 +14,8 @@ from pathlib import Path
 import sys
 import os
 from django.contrib.messages import constants as messages
+import cloudinary
+cloudinary.config(secure=True)
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
