@@ -1,5 +1,7 @@
 ## Project Overview
 This project is a full-stack web application designed to allow users to post, read, comment, and interact with news stories in a Reddit-style format. The site aims to foster a community where users can discuss news topics, upvote/downvote posts, and categorize content by topic groups.
+- ![image](https://github.com/user-attachments/assets/f984ad92-db1d-471b-88f3-5f03cebf41dd)
+
 
 ## Table of Contents
 1. Purpose and Goals
@@ -82,6 +84,8 @@ This project is a full-stack web application designed to allow users to post, re
 - Content, author, timestamp, related post.
 
 ## Testing
+-![image](https://github.com/user-attachments/assets/031a7e80-0c53-4b51-afdf-5db36f50c8cd)
+ 
 - Manual Testing:
 ## Forms:
 - Validate form inputs for creating/editing posts and comments.
