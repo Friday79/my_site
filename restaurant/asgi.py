@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/
 """
 
 import os
-import env
+
 
 from django.core.asgi import get_asgi_application
 
