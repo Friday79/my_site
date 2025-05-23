@@ -32,7 +32,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 
@@ -80,6 +80,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://localhost:8000', 'https://127.0.0.1',
 ]
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
