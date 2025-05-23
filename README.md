@@ -1,5 +1,8 @@
 ## Project Overview
-This project is a full-stack web application designed to allow users to post, read, comment, and interact with news stories in a Reddit-style format. The site aims to foster a community where users can discuss news topics, upvote/downvote posts, and categorize content by topic groups.
+This project is a full-stack web application designed to allow users to post, read, comment, and interact with news stories in a Reddit-style format. The site aims to foster a community where users can discuss news topics, upvote/downvote posts, and categorize content by topic groups.Run the server in the terminal by writing python3 manage.py runserver and open browser. To access the admin panel put slash(/)after the url and write admin. in the topleft corner of the home page,is the title Restaurant which when click upon it will return you to the home page if you are not on home page. Click on the Register on the navbar and the login.To write a comment or upor downvote, First click on the post, then post details will appear where you vote and comment. Then click on home or restaurant to go back to home page. On the admin page, click on post. On the topright corner click add to add a post, fill the blank form ,then add image and savs. On admin panei click on comment to see the comments, the you can approve the comments.
+
+![image](https://github.com/user-attachments/assets/0f2a3087-101a-4f10-8c7f-2959766227d8)
+
 
 ## Table of Contents
 1. Purpose and Goals
@@ -31,6 +34,10 @@ This project is a full-stack web application designed to allow users to post, re
 + Leave comments on posts.
 + View post details, including time and date of posting.
 2. Admin Features:
+  + Create, edit, and delete posts.
+## Signup 
+  + ![image](https://github.com/user-attachments/assets/39cd18db-e846-4a75-8f7a-55ae78e4bfd1)
+
 
 + Moderate posts and comments.
 + Approve or disapprove user-generated content.
@@ -82,7 +89,13 @@ This project is a full-stack web application designed to allow users to post, re
 - Content, author, timestamp, related post.
 
 ## Testing
-- Manual Testing:
+- Run unit tests:
+  - Add impot env to wsgi & asgi then switch to first database url in setting.py for testing
+  - After testing switch everything back again for production. 
+
+ -python manage.py test:
+- ![image](https://github.com/user-attachments/assets/a69e3a03-c4dc-47b4-a486-e9557333f689)
+
 ## Forms:
 - Validate form inputs for creating/editing posts and comments.
 ##Navigation:
@@ -98,11 +111,21 @@ Post and comment management
 - Design Principle.
 - Wireframes:
 
+- ![image](https://github.com/user-attachments/assets/9717e60f-4eb6-4dac-8383-c524cb89e89f)
+
+
 
 ## Security Considerations
 - Passwords hashed using Django's authentication system.
 - Environment variables for sensitive data.
 - User permissions for role-based access control.
+- Use DEBUG=False in production.
+
+Use Whitenoise for static file management.
+
+Enable SSL/TLS for secure connections.
+
+Use Cloudinary/AWS S3 for media file storage.
 ## Future Enhancements
 - Real-time Updates:
 
