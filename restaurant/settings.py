@@ -140,13 +140,13 @@ DATABASES = {
 
 
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://username:password@host:port/database',
-        conn_max_age=600,
-        ssl_require=True  # Enforce SSL
-    )
-}
+#DATABASES = {
+#    'default': dj_database_url.config(
+#        default='postgres://username:password@host:port/database',
+#        conn_max_age=600,
+#        ssl_require=True  # Enforce SSL
+#    )
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
