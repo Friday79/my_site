@@ -1,137 +1,180 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% block content %}
 <div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ post.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
-                {% else %}
-                <img src="{{ post.featured_image.url }}" width="100%">
-                {% endif %}
-            </div>
-        </div>
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-md-6 masthead-text">
+        <h5 class="post-title">{{ post.title }}</h5>
+        <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+      </div>
+      <div class="d-none d-md-block col-md-6 masthead-image">
+        {% if "placeholder" in post.featured_image.url %}
+          <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="default image">
+        {% else %}
+          <img src="{{ post.featured_image.url }}" width="100%" alt="main image">
+        {% endif %}
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text ">
-                    {{ post.content | safe }}
-                </p>
-                <div class="row">
+  <div class="row">
+    <div class="col card mb-4 mt-3 left top">
+      <div class="card-body">
+        <p class="card-text">{{ post.content|safe }}</p>
 
-                    <div class="col-1">
-                        <strong>
-                            {% if user.is_authenticated %}
-                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-                                {% csrf_token %}
-                                {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
-                                {% else %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
-                                {% endif %}
-                            </form>
-                            {% else %}
-                            <span class="text-secondary"><i class="far fa-heart"></i></span>
-                            {% endif %}
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <span class="text-secondary">{{ post.number_of_likes }} </span>
-                        </strong>
-                    </div>
-                    <div class="col-1">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
-                            <!-- Our total_comments variable goes before the closing strong tag -->
-                            {{ total_comments }}</strong>
-                        {% endwith %}
-                    </div>
-                    <div class="col-1">
-                        <strong class="text-secondary">
-                        <button id="upvote-btn" class="btn btn-sm btn-outline-success" data-action="upvote" data-slug="{{ post.slug }}">
-                        <i class="fas fa-thumbs-up"></i>
-                        </button>
-                        <span id="upvotes-count">{{ post.upvotes }}</span>
-                        </strong>
-                    </div>
-                    <div class="col-1">
-                        <strong class="text-secondary">
-                        <button id="downvote-btn" class="btn btn-sm btn-outline-danger" data-action="downvote" data-slug="{{ post.slug }}">
-                        <i class="fas fa-thumbs-down"></i>
-                        </button>
-                        <span id="downvotes-count">{{ post.downvotes }}</span>
-                        </strong>
-                    </div>
-                    <div class="col-2">
-                        <strong class="text-secondary">
-                        Score: <span id="total-votes">{{ post.total_votes }}</span>
-                        </strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body">
-                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
-                {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                        {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
-                            <!-- The comment's created date goes here -->
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    <!-- The body of the comment goes before the | -->
-                    {{ comment.body | linebreaks }}
-                </div>
-                <!-- Our for loop ends here -->
-                {% endfor %}
-            </div>
-        </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
-            <div class="card-body">
-                <!-- For later -->
-                {% if commented %}
-                <div class="alert alert-success" role="alert">
-                    Your comment is awaiting approval
-                </div>
+        {% if user.is_authenticated and user == post.author %}
+          <a href="{% url 'post_update' post.slug %}" class="btn btn-warning">
+            <i class="fas fa-edit"></i> Update
+          </a>
+          <a href="{% url 'post_delete' post.slug %}" class="btn btn-danger">
+            <i class="fas fa-trash"></i> Delete
+          </a>
+        {% endif %}
+
+        <div class="row mt-3">
+          <!-- Like -->
+          <div class="col-1">
+            <strong>
+              {% if user.is_authenticated %}
+              <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                {% csrf_token %}
+                {% if liked %}
+                  <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like"><i class="fas fa-heart"></i></button>
                 {% else %}
-                {% if user.is_authenticated %}
+                  <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like"><i class="far fa-heart"></i></button>
+                {% endif %}
+              </form>
+              {% else %}
+                <span class="text-secondary"><i class="far fa-heart"></i></span>
+              {% endif %}
+              <span class="text-secondary">{{ post.number_of_likes }}</span>
+            </strong>
+          </div>
 
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-                {% endif %}
-                {% endif %}
-            </div>
+          <!-- Comments count -->
+          <div class="col-1">
+            {% with comments.count as total_comments %}
+              <strong class="text-secondary">
+                <i class="far fa-comments"></i> {{ total_comments }}
+              </strong>
+            {% endwith %}
+          </div>
+
+          <!-- Upvote -->
+          <div class="col-1">
+            <strong class="text-secondary">
+              <button id="upvote-btn" class="btn btn-sm btn-outline-success" title="Upvote">
+                <i class="fas fa-thumbs-up"></i>
+              </button>
+              <span id="upvotes-count">{{ post.upvotes }}</span>
+            </strong>
+          </div>
+
+          <!-- Downvote -->
+          <div class="col-1">
+            <strong class="text-secondary">
+              <button id="downvote-btn" class="btn btn-sm btn-outline-danger" title="Downvote">
+                <i class="fas fa-thumbs-down"></i>
+              </button>
+              <span id="downvotes-count">{{ post.downvotes }}</span>
+            </strong>
+          </div>
+
+          <!-- Score -->
+          <div class="col-2">
+            <strong class="text-secondary">
+              Score: <span id="total-votes">{{ post.total_votes }}</span>
+            </strong>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="row">
+    <div class="col">
+      <hr>
+    </div>
+  </div>
+
+  <!-- Comments Section -->
+  <div class="row">
+    <div class="col-md-8 card mb-4 mt-3">
+      <h3>Comments:</h3>
+      <div class="card-body">
+        {% for comment in comments %}
+          <div class="comments" style="padding: 10px;">
+            <p class="font-weight-bold">
+              {{ comment.name }}
+              <span class="text-muted font-weight-normal">{{ comment.created_on }}</span> wrote:
+            </p>
+            {{ comment.body|linebreaks }}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="col-md-4 card mb-4 mt-3">
+      <div class="card-body">
+        {% if commented %}
+          <div class="alert alert-success" role="alert">
+            Your comment is awaiting approval
+          </div>
+        {% else %}
+          {% if user.is_authenticated %}
+            <h3>Leave a comment:</h3>
+            <p>Posting as: {{ user.username }}</p>
+            <form method="post" style="margin-top: 1.3em;">
+              {% csrf_token %}
+              {{ comment_form|crispy }}
+              <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+            </form>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- Upvote/Downvote Script -->
+<script>
+function getCSRFToken() {
+  return document.querySelector('[name=csrfmiddlewaretoken]').value;
+}
+
+document.getElementById("upvote-btn").addEventListener("click", function() {
+  fetch("{% url 'post_upvote' post.slug %}", {
+    method: "POST",
+    headers: {
+      "X-CSRFToken": getCSRFToken(),
+    },
+  })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("upvotes-count").textContent = data.upvotes;
+    document.getElementById("downvotes-count").textContent = data.downvotes;
+    document.getElementById("total-votes").textContent = data.total_votes;
+  });
+});
+
+document.getElementById("downvote-btn").addEventListener("click", function() {
+  fetch("{% url 'post_downvote' post.slug %}", {
+    method: "POST",
+    headers: {
+      "X-CSRFToken": getCSRFToken(),
+    },
+  })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("upvotes-count").textContent = data.upvotes;
+    document.getElementById("downvotes-count").textContent = data.downvotes;
+    document.getElementById("total-votes").textContent = data.total_votes;
+  });
+});
+</script>
 {% endblock content %}
