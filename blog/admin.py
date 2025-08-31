@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Category
+from .models import Post, Comment, Category, Subscriber
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -51,4 +51,8 @@ class CategoryAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
 
+@admin.register(Subscriber)
+class SubscriberAdmin(admin.ModelAdmin):
+    list_display = ('email', 'created_on')  # show email and subscription date
+    search_fields = ('email',)  # allow searching by email
 

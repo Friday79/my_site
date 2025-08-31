@@ -1,9 +1,10 @@
 body {
     background-color: #f9fbfc;
+    font-family: Lato, sans-serif; /* set default font */
 }
 
 .brand {
-    font-family: Lato, sans-serif;
+
     font-size: 1.4rem;
     font-weight: 700;
     color: #4A4A4F;
@@ -72,7 +73,7 @@ body {
     overflow: hidden;
 }
 
-.masthead-image:after {
+.masthead-image::after {
     content: "";
     position: absolute;
     top: 0;
@@ -80,8 +81,6 @@ body {
     height: 100%;
     width: 150%;
     background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
     transform: skew(15deg);
     z-index: 100;
 }
@@ -109,6 +108,7 @@ body {
 .btn-signup {
     background-color: #23BBBB;
     color: #fff;
+    transition: 0.3s;
 }
 
 .btn-signup:hover,
@@ -120,6 +120,7 @@ body {
 .link {
     color: #23BBBB;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .link:hover,
