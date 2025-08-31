@@ -8,54 +8,93 @@
     <div class="row">
 
         <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in post_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
-                                {% else %}
-                                <img class="card-img-top" src="{{ post.featured_image.url }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                </div>
-                            </div>
-                            <a href="{% url 'post_detail' post.slug  %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.excerpt }}</p>
-                            </a>
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
-                                {{ post.number_of_likes }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
+        <div class="col-12 mt-3 left text-center">
+            <h2>Browse by Category</h2>
+            
+                {% for cat in categories %}
+                <li class="list-inline-item">
+                    <a href="{% url 'category_posts' category.name %}"
+                        class="btn btn-sm {% if selected_category == cat %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                        {{ cat.name }}
+                    </a>
+                </li>
                 {% endfor %}
-
-            </div>
+            </ul>
         </div>
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+    <div class="row">
+        {% for post in post_list %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="image-container">
+                        {% if "placeholder" in post.featured_image.url %}
+                        <img class="card-img-top"
+                            src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="default image">
+                        {% else %}
+                        <img class="card-img-top" src="{{ post.featured_image.url }}" alt="main image">
+                        {% endif %}
+                        <div class="image-flash">
+                            <p class="author">Author: {{ post.author }}</p>
+                        </div>
+                    </div>
+                    <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                        <h3 class="card-title">{{ post.title }}</h3>
+                        <p class="card-text">{{ post.excerpt }}</p>
+                    </a>
+                    <hr />
+                    <p class="card-text text-muted ">{{ post.created_on}} <i class="far fa-heart"></i>
+                        {{ post.number_of_likes }}</p>
+                </div>
+            </div>
+        </div>
+        {% for item in external_news %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <!-- Image -->
+                    {% if item.urlToImage %}
+                    <img class="card-img-top" src="{{ item.urlToImage }}" alt="{{ item.title|slice:" :50" }}">
+                    {% else %}
+                    <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                        alt="Default placeholder image">
+                    {% endif %}
+        
+                    <!-- Title & excerpt -->
+                    <a href="{{ item.url }}" target="_blank" class="post-link">
+                        <h2 class="card-title">{{ item.title }}</h2>
+                        <p class="card-text">{{ item.description|slice:":150" }}</p>
+                    </a>
+        
+                    <hr>
+                    <p class="card-text text-muted h6">
+                        {{ item.publishedAt|date:"Y-m-d" }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% if forloop.counter|divisibleby:3 %}
+    </div>
+    <div class="row">
+        {% endif %}
+        {% endfor %}
 
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
+    </div>
 </div>
-{%endblock%}
+</div>
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+</div>
+{% endblock %}
