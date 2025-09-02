@@ -11,6 +11,7 @@ from django.urls import reverse_lazy
 import requests
 
 
+
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
@@ -205,3 +206,7 @@ class SubscribeView(FormView):
         messages.error(self.request, " Please enter a valid email address.")
         return super().form_invalid(form)
     
+    
+
+    
+

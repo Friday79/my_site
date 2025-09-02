@@ -93,8 +93,12 @@ This project is a full-stack web application designed to allow users to post, re
   - Add impot env to wsgi & asgi then switch to first database url in setting.py for testing
   - After testing switch everything back again for production. 
 
- -python manage.py test:
+ -python manage.py test: 
+ ## Validation Css
 - ![image](https://github.com/user-attachments/assets/a69e3a03-c4dc-47b4-a486-e9557333f689)
+
+## Validation HTML
+- ![image](https://github.com/user-attachments/assets/1b5322a0-ccde-4077-b59c-8609bb619705)
 
 ## Forms:
 - Validate form inputs for creating/editing posts and comments.
