@@ -1,7 +1,7 @@
 ## Project Overview
 This project is a full-stack web application, designed to allow users to post, read, edit, comment, and interact with news stories in a Reddit-style format. The site aims to foster a community where users can discuss news topics.Users can upvote/downvote posts, and categorize content by topics. To run the server in the terminal,  writing python3 manage.py runserver and open the  browser. To access the admin panel, put slash(/)after the url of the page and write admin. In the top left corner of the home page,is the title Newsletters which when click upon it will return you to the home page, if you are not on home page. Click on  Register on the navbar if you are not a register user and then login to access the the page.To write a comment, upvote/downvote or update/delete post, first click on the post title, then post details will appear where you vote and comment can also edit or delete post. Then click on home or Newsletters to go back to home page. On the admin page, click on post. On the right corner click add to add a post, fill the blank form ,then add image and savs. On admin panel, click on comment to see the comments, then you can approve the comments in the Admin page.
 
-![image](https://github.com/user-attachments/assets/0f2a3087-101a-4f10-8c7f-2959766227d8)
+![image](https://github.com/user-attachments/assets/4ffc207e-5446-4c08-b7d6-431deec8cfa1)
 
 
 ## Table of Contents
@@ -29,13 +29,22 @@ This project is a full-stack web application, designed to allow users to post, r
 1. User Features:
 
 - Account registration and login/logout.
- - ![image]()
+ - ![image](https://github.com/user-attachments/assets/a3622d5e-3e19-431a-88b9-0175bd121ab6)
+ - If User already exist it shows.
+ - ![image](https://github.com/user-attachments/assets/ca51e4a5-d660-4523-9265-b19d602d457a)
+- On logout it shows .
+- ![image](https://github.com/user-attachments/assets/3e57450c-9b63-4fb5-8131-4200323ce021)
 + Create, edit, and delete posts.
 + Upvote/downvote posts.
 + Leave comments on posts.
+- ![image](https://github.com/user-attachments/assets/c9e77aa0-8a1c-4ddb-93cb-13c369ca6b47)
 + View post details, including time and date of posting.
+![image](https://github.com/user-attachments/assets/a80e45ab-f5ec-4602-98e0-c13aeb5e46f6)
 2. Admin Features:
+- ![image](https://github.com/user-attachments/assets/169d02d2-63a5-489f-a38e-65f3ffa6b027)
+- ![image](https://github.com/user-attachments/assets/5a6d8b7f-5560-446a-935a-4e55c0decf2d)
   + Create, edit, and delete posts.
+- ![image](https://github.com/user-attachments/assets/0de37b55-4eae-4be1-b178-5f2c764393ef)
 ## Signup 
   + ![image](https://github.com/user-attachments/assets/39cd18db-e846-4a75-8f7a-55ae78e4bfd1)
 
