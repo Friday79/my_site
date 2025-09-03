@@ -1,5 +1,5 @@
 ## Project Overview
-This project is a full-stack web application designed to allow users to post, read, comment, and interact with news stories in a Reddit-style format. The site aims to foster a community where users can discuss news topics, upvote/downvote posts, and categorize content by topic groups.Run the server in the terminal by writing python3 manage.py runserver and open browser. To access the admin panel put slash(/)after the url and write admin. in the topleft corner of the home page,is the title Restaurant which when click upon it will return you to the home page if you are not on home page. Click on the Register on the navbar and the login.To write a comment or upor downvote, First click on the post, then post details will appear where you vote and comment. Then click on home or restaurant to go back to home page. On the admin page, click on post. On the topright corner click add to add a post, fill the blank form ,then add image and savs. On admin panei click on comment to see the comments, the you can approve the comments.
+This project is a full-stack web application, designed to allow users to post, read, edit, comment, and interact with news stories in a Reddit-style format. The site aims to foster a community where users can discuss news topics.Users can upvote/downvote posts, and categorize content by topics. To run the server in the terminal,  writing python3 manage.py runserver and open the  browser. To access the admin panel, put slash(/)after the url of the page and write admin. In the top left corner of the home page,is the title Newsletters which when click upon it will return you to the home page, if you are not on home page. Click on  Register on the navbar if you are not a register user and then login to access the the page.To write a comment, upvote/downvote or update/delete post, first click on the post title, then post details will appear where you vote and comment can also edit or delete post. Then click on home or Newsletters to go back to home page. On the admin page, click on post. On the right corner click add to add a post, fill the blank form ,then add image and savs. On admin panel, click on comment to see the comments, then you can approve the comments in the Admin page.
 
 ![image](https://github.com/user-attachments/assets/0f2a3087-101a-4f10-8c7f-2959766227d8)
 
@@ -18,7 +18,7 @@ This project is a full-stack web application designed to allow users to post, re
 11. Future Enhancements
 ## Purpose and Goals
 ### User Goals:
-- Post, read, and comment on news stories.
+- Post, read,update/delete and comment on news stories.
 - Interact with posts through upvotes and downvotes.
 - Navigate topics to find relevant news.
 ### Site Owner Goals:
@@ -29,6 +29,7 @@ This project is a full-stack web application designed to allow users to post, re
 1. User Features:
 
 - Account registration and login/logout.
+ - ![image]()
 + Create, edit, and delete posts.
 + Upvote/downvote posts.
 + Leave comments on posts.
@@ -129,7 +130,7 @@ Use Whitenoise for static file management.
 
 Enable SSL/TLS for secure connections.
 
-Use Cloudinary/AWS S3 for media file storage.
+Use Cloudinary.
 ## Future Enhancements
 - Real-time Updates:
 
