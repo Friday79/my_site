@@ -34,9 +34,13 @@ This project is a full-stack web application, designed to allow users to post, r
  - ![image](https://github.com/user-attachments/assets/ca51e4a5-d660-4523-9265-b19d602d457a)
 - On logout it shows .
 - ![image](https://github.com/user-attachments/assets/3e57450c-9b63-4fb5-8131-4200323ce021)
+- Login with incorrect credentials .
+- ![image](https://github.com/user-attachments/assets/bd82d386-7370-4a87-99e8-abd27dd0663d)
 + Create, edit, and delete posts.
 + Upvote/downvote posts.
 + Leave comments on posts.
+- Appove comment in admin.
+- ![image](https://github.com/user-attachments/assets/afb92961-4773-4989-a3b2-268cfc288c09)
 - ![image](https://github.com/user-attachments/assets/c9e77aa0-8a1c-4ddb-93cb-13c369ca6b47)
 + View post details, including time and date of posting.
 ![image](https://github.com/user-attachments/assets/a80e45ab-f5ec-4602-98e0-c13aeb5e46f6)
