@@ -47,10 +47,12 @@ This project is a full-stack web application, designed to allow users to post, r
 2. Admin Features:
 - ![image](https://github.com/user-attachments/assets/169d02d2-63a5-489f-a38e-65f3ffa6b027)
 - ![image](https://github.com/user-attachments/assets/5a6d8b7f-5560-446a-935a-4e55c0decf2d)
-  + Create, edit, and delete posts.
++ Create, edit, and delete posts.
 - ![image](https://github.com/user-attachments/assets/0de37b55-4eae-4be1-b178-5f2c764393ef)
 ## Signup 
-  + ![image](https://github.com/user-attachments/assets/39cd18db-e846-4a75-8f7a-55ae78e4bfd1)
++ ![image](https://github.com/user-attachments/assets/39cd18db-e846-4a75-8f7a-55ae78e4bfd1)
+## Subscring with already existing email.
+- ![image]
 
 
 + Moderate posts and comments.
@@ -120,6 +122,12 @@ This project is a full-stack web application, designed to allow users to post, r
 -Ensure all links and buttons are functional.
 ## Responsive Design:
 - Test layout on various screen sizes.
+## Desktop view.
+- ![image](https://github.com/user-attachments/assets/a1f98e7d-aff6-4366-a2ac-40d37ea200b0)
+## Mobile s-320px view.
+- ![image](https://github.com/user-attachments/assets/f683b83b-55ff-4581-bb0e-6e68d84f4a59)
+## Create post form on 320px screeen.
+- ![image](https://github.com/user-attachments/assets/96aa9ed5-7467-4ab8-9352-49d2d1fc984e)
 
 ## Agile Development Process
 Epics:
