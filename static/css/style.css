@@ -18,13 +18,14 @@ body {
     font-weight: 300;
 }
 
-.light-bg {
+.dark-bg {
     background-color: #fff;
 }
 
 .dark-bg {
     background-color: #445261;
 }
+
 
 .main-bg {
     background-color: #F9FAFC;
@@ -54,7 +55,7 @@ body {
 }
 
 .masthead {
-    margin-top: 5px;
+    margin-top: 8px;
     margin-bottom: 4px;
     overflow: hidden;
     position: relative;
