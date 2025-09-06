@@ -207,6 +207,17 @@ class SubscribeView(FormView):
         return super().form_invalid(form)
     
     
+class UnsubscribeView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "unsubscribe.html")  # confirmation form/page
 
+    def post(self, request, *args, **kwargs):
+        email = request.POST.get("email")
+        if Subscriber.objects.filter(email=email).exists():
+            Subscriber.objects.filter(email=email).delete()
+            messages.success(request, f"{email} has been unsubscribed successfully.")
+        else:
+            messages.error(request, "This email is not in our subscriber list.")
+        return redirect("home") 
     
 

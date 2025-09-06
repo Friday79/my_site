@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path
-from .views import SubscribeView
+from .views import SubscribeView, UnsubscribeView
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
@@ -11,6 +11,7 @@ urlpatterns = [
     path('post/update/<slug:slug>', views.PostUpdateView.as_view(), name='post_update'),
     path('<slug:slug>/delete/', views.PostDeleteView.as_view(), name='post_delete'),
     path('subscribe/', SubscribeView.as_view(), name='subscribe'),
+     path("unsubscribe/", UnsubscribeView.as_view(), name="unsubscribe"),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     path('category/<slug:slug>/', views.CategoryPostList.as_view(), name="category_posts"),
 ]
