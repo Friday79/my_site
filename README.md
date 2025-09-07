@@ -129,7 +129,8 @@ This project is a full-stack web application, designed to allow users to post, r
 ## Create post form on 320px screeen.
 - ![image](https://github.com/user-attachments/assets/96aa9ed5-7467-4ab8-9352-49d2d1fc984e)
 
-## Agile Development Process
+## Agile Development Process.
+- ![image](https://github.com/user-attachments/assets/5bc69785-0f94-497a-9e17-ebee01905aa6)
 Epics:
 User account management.
 Post and comment management
@@ -239,19 +240,19 @@ Post and comment management
 +------------------------------------------------+
 |            Browse by Category                  |
 +------------------------------------------------+
-| [Image]                                        |
+| [no Image]                                        |
 | Author: Friday                                 |
 | Title: Risk with gmos                          |
 | Short excerpt text...                          |
 | Date, Time   ♥ count                           |
 +------------------------------------------------+
-| [Image]                                        |
+| [no Image]                                        |
 | Author: Friday                                 |
 | Title: Gmos and Evolution                      |
 | Short excerpt text...                          |
 | Date, Time   ♥ count                           |
 +------------------------------------------------+
-| [Image]                                        |
+| [no Image]                                        |
 | Author: Friday                                 |
 | Title: Herbal medicine supplement              |
 | Short excerpt text...                          |
