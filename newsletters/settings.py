@@ -193,11 +193,27 @@ if DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 else:
     STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+# Cloudinary / Media files
+if 'test' in sys.argv:
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'test_media')
+    CLOUDINARY_URL = None
+else:
+    CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Initialize Cloudinary if URL exists
+if CLOUDINARY_URL:
+    import cloudinary
+    cloudinary.config(secure=True)
+
 MEDIA_URL = '/media/'
-CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
-SECRET_KEY = os.getenv('SECRET_KEY')
-DATABASE_URL = os.getenv('DATABASE_URL')
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#MEDIA_URL = '/media/'
+#CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
+#SECRET_KEY = os.getenv('SECRET_KEY')
+#DATABASE_URL = os.getenv('DATABASE_URL')
+#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_SECURE = True
 

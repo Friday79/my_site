@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from .models import Post, Category, Comment
-
+from django.db.utils import IntegrityError
+from .models import Post, Category, Comment, Subscriber
 
 class TestModels(TestCase):
     def setUp(self):
@@ -22,7 +22,10 @@ class TestModels(TestCase):
             body="This is a test comment.",
             approved=True,
         )
+        # Subscriber setup
+        self.subscriber = Subscriber.objects.create(email="subscriber@example.com")
 
+    # --- Existing model tests ---
     def test_post_str(self):
         self.assertEqual(str(self.post), "Test Post")
 
@@ -40,4 +43,17 @@ class TestModels(TestCase):
     def test_post_number_of_likes(self):
         self.post.likes.add(self.user)
         self.assertEqual(self.post.number_of_likes(), 1)
-        
+
+    # --- Subscriber model tests ---
+    def test_subscriber_str(self):
+        """__str__ should return the subscriber email"""
+        self.assertEqual(str(self.subscriber), "subscriber@example.com")
+
+    def test_subscriber_unique_email(self):
+        """Creating a subscriber with duplicate email should raise IntegrityError"""
+        with self.assertRaises(IntegrityError):
+            Subscriber.objects.create(email="subscriber@example.com")
+
+    def test_subscriber_created_on_auto_now_add(self):
+        """created_on should be automatically set"""
+        self.assertIsNotNone(self.subscriber.created_on)

@@ -95,7 +95,7 @@ class PostDetail(View):
                 "total_votes": post.total_votes(),
             },
         )
-
+    
 
 
 class PostLike(View):
@@ -108,7 +108,7 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-
+    
 
 class PostUpvote(View):
     def post(self, request, slug, *args, **kwargs):
