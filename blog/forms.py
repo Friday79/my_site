@@ -27,10 +27,9 @@ class SubscriberForm(forms.ModelForm):
         model = Subscriber
         fields = ['email']
         widgets = {
-            'email': forms.EmailInput(attrs={
-                'autocomplete': 'email'
-            })
+            'email': forms.EmailInput(attrs={'autocomplete': 'email'})
         }
+
         
 
     

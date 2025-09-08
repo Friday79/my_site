@@ -108,6 +108,8 @@ This project is a full-stack web application, designed to allow users to post, r
 - Run unit tests:
 ## Test_models.py.
 - ![image](https://github.com/user-attachments/assets/c4998492-b0c0-43d2-9b08-1dca1140e0fe)
+## Added Test_form.py.
+- ![image](https://github.com/user-attachments/assets/07f3d6cb-492f-4a18-a573-e83c5319a1bb)
   - Add impot env to wsgi & asgi then switch to first database url in setting.py for testing
   - After testing switch everything back again for production. 
 

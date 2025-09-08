@@ -8,7 +8,7 @@ from .forms import CommentForm, CategoryForm, PostForm, SubscriberForm
 from django.contrib import messages
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse_lazy
-import requests
+
 
 
 
@@ -75,10 +75,10 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.success(request, 'Your comment was submitted successfully.')
+            messages.success(request, "Your comment was submitted successfully.")
             commented = True
         else:
-            messages.error(request, 'There was a problem submitting your comment.')
+            messages.error(request, "There was a problem submitting your comment.")
             commented = False
 
         return render(
@@ -104,10 +104,23 @@ class PostLike(View):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
+            liked = False
         else:
             post.likes.add(request.user)
+            liked = True
 
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        # ----------  JSON for tests / fetch  ----------
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            return JsonResponse({
+                'liked': liked,
+                'likes_count': post.likes.count(),
+                'upvotes': post.upvotes,
+                'downvotes': post.downvotes,
+                'total_votes': post.total_votes(),
+            })
+
+        # ----------  normal browser submit  ----------
+        return redirect(reverse('post_detail', args=[slug]))
     
 
 class PostUpvote(View):
@@ -190,21 +203,21 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     
 class SubscribeView(FormView):
     template_name = 'subscribe.html'
-    form_class = SubscriberForm   # make sure this is imported
+    form_class = SubscriberForm   
     success_url = reverse_lazy('home')  
 
     def form_valid(self, form):
         email = form.cleaned_data['email']
         if Subscriber.objects.filter(email=email).exists():
-            messages.error(self.request, " This email is already subscribed.")
+            messages.error(self.request,  "This email is already subscribed.")
         else:
             form.save()
-            messages.success(self.request, " Thank you for subscribing!")
+            messages.success(self.request,  "Thank you for subscribing!")
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, " Please enter a valid email address.")
-        return super().form_invalid(form)
+        messages.error(self.request,  "Please enter a valid email address.")
+        return redirect('home')
     
     
 class UnsubscribeView(View):

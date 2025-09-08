@@ -14,11 +14,16 @@ from pathlib import Path
 import sys
 import os
 from django.contrib.messages import constants as messages
-import cloudinary
-cloudinary.config(secure=True)
 import dj_database_url
+
+# Load env variables first
 if os.path.isfile('env.py'):
     import env
+
+import cloudinary
+
+# Configure Cloudinary after env is loaded
+cloudinary.config(cloudinary_url=os.environ.get('CLOUDINARY_URL'), secure=True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -194,28 +199,37 @@ if DEBUG:
 else:
     STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
-# Cloudinary / Media files
-if 'test' in sys.argv:
-    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'test_media')
-    CLOUDINARY_URL = None
-else:
-    CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Initialize Cloudinary if URL exists
-if CLOUDINARY_URL:
-    import cloudinary
-    cloudinary.config(secure=True)
 
 MEDIA_URL = '/media/'
-#MEDIA_URL = '/media/'
-#CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
-#SECRET_KEY = os.getenv('SECRET_KEY')
-#DATABASE_URL = os.getenv('DATABASE_URL')
+
+if 'test' in sys.argv:
+    # Local storage for tests
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'test_media')
+
+    # Dummy Cloudinary config to avoid template errors
+    import cloudinary
+    cloudinary.config(
+        cloud_name='test',
+        api_key='test',
+        api_secret='test',
+        secure=True
+    )
+else:
+    # Production/Dev storage
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    cloudinary.config(
+        cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
+        api_key=os.environ.get('CLOUDINARY_API_KEY'),
+        api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
+        secure=True
+    )
+
+
 #DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-CLOUDINARY_SECURE = True
+#CLOUDINARY_SECURE = True
 
 
 # Default primary key field type
