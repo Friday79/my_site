@@ -106,6 +106,8 @@ This project is a full-stack web application, designed to allow users to post, r
 
 ## Testing
 - Run unit tests:
+## All Test.
+- ![image](https://github.com/user-attachments/assets/97ae14b0-4905-4437-9404-7d56f14d0d15)
 ## Test_models.py.
 - ![image](https://github.com/user-attachments/assets/c4998492-b0c0-43d2-9b08-1dca1140e0fe)
 ## Added Test_form.py.
