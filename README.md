@@ -113,7 +113,10 @@ This project is a full-stack web application, designed to allow users to post, r
 ## Added Test_form.py.
 - ![image](https://github.com/user-attachments/assets/07f3d6cb-492f-4a18-a573-e83c5319a1bb)
   - Add impot env to wsgi & asgi then switch to first database url in setting.py for testing
-  - After testing switch everything back again for production. 
+  - After testing switch everything back again for production.
+## Test Coverage.
+- ![image](https://github.com/user-attachments/assets/cec3c0ba-0b96-4131-93bc-2ec771d2d5ed) 
+- ![image](https://github.com/user-attachments/assets/486e38b4-b869-4552-b5cc-29eb913aff2e)
 
  -python manage.py test: 
  ## Validation Css
