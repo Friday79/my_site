@@ -37,11 +37,11 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 
-ALLOWED_HOSTS = ['restaurant-bliss1-856a572c0980.herokuapp.com', '127.0.0.1:8000', 'localhost']
+ALLOWED_HOSTS = ['newsletters-31baa9be01e6.herokuapp.com', '127.0.0.1:8000', 'localhost']
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
