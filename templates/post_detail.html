@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="masthead my-md-5 my-2">
+<div class="masthead mt-md-4 mt-0">
   <div class="container">
     <div class="row g-0">
       <div class="col-md-6 masthead-text">
@@ -132,7 +132,7 @@
             <form method="post" style="margin-top: 1.3em;">
               {% csrf_token %}
               {{ comment_form|crispy }}
-              <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+              <button type="submit" class="btn btn-signup btn-lg mt-2">Submit</button>
             </form>
           {% endif %}
         {% endif %}
