@@ -227,9 +227,9 @@ else:
     )
 
 
-#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-#CLOUDINARY_SECURE = True
+CLOUDINARY_SECURE = True
 
 
 # Default primary key field type
