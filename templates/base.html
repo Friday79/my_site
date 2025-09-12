@@ -11,17 +11,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-        </script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=5">
 
 </head>
 
@@ -40,39 +43,39 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav m-auto  mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link nav-link-custom active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'category_posts' 'travel' %}">Travel</a>
+                        <a class="nav-link nav-link-custom " href="{% url 'category_posts' 'travel' %}">Travel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'category_posts' 'health' %}">Health</a>
+                        <a class="nav-link nav-link-custom" href="{% url 'category_posts' 'health' %}">Health</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'category_posts' 'technology' %}">Technology</a>
+                        <a class="nav-link nav-link-custom" href="{% url 'category_posts' 'technology' %}">Technology</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'category_posts' 'science' %}">Science</a>
+                        <a class="nav-link nav-link-custom" href="{% url 'category_posts' 'science' %}">Science</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav m-auto  mb-lg-0">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'post_create' %}">Create Post</a>
+                        <a class="nav-link nav-link-custom" href="{% url 'post_create' %}">Create Post</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link nav-link-custom" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link nav-link-custom" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link nav-link-custom" href="{% url 'account_login' %}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'subscribe' %}">Subscribe</a>
+                        <a class="nav-link nav-link-custom" href="{% url 'subscribe' %}">Subscribe</a>
                     </li>
                     {% endif %}
                     
