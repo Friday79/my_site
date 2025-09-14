@@ -10,7 +10,7 @@ body {
 }
 
 .red-o {
-    color: #E84610 !important;
+    color: #E84610;
 }
 
 .thin {
@@ -32,6 +32,8 @@ body {
 .card {
     border: none;
     background-color: transparent;
+    -webkit-print-color-adjust: exact; /* legacy WebKit */
+    print-color-adjust: exact;         /* standard */
 }
 
 .image-container {
@@ -65,6 +67,8 @@ body {
     background-color: #445261;
     color: white;
     position: relative;
+    text-align: -webkit-match-parent; /* legacy Safari */
+    text-align: match-parent;         /* modern Safari */
 }
 
 .masthead-image {
@@ -99,11 +103,15 @@ body {
 .post-title {
     margin-top: 20%;
     margin-left: 5%;
+    text-align: -webkit-match-parent; /* legacy Safari */
+    text-align: match-parent;         /* modern Safari */
 }
 
 .post-subtitle {
     margin-left: 5%;
     color: lightgray;
+    text-align: -webkit-match-parent; /* legacy Safari */
+    text-align: match-parent;         /* modern Safari */
 }
 
 .btn-signup {
