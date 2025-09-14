@@ -37,7 +37,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 
@@ -201,10 +201,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-#if DEBUG:
-#    STATICFILES_STORAGE = 'django.core.files.storage.FileSystemStorage'
-#else:
-#    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+if DEBUG:
+    STATICFILES_STORAGE = 'django.core.files.storage.FileSystemStorage'
+else:
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 
