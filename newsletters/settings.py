@@ -208,12 +208,12 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Use WhiteNoise for production
-if DEBUG:
-    STATICFILES_STORAGE = 'django.core.files.storage.FileSystemStorage'
-else:
-    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#if DEBUG:
+#    STATICFILES_STORAGE = 'django.core.files.storage.FileSystemStorage'
+#else:
+#    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-WHITENOISE_KEEP_ONLY_HASHED_FILES = True
+#WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 # ---------------------------
 # Media files (user uploads)
 # ---------------------------
