@@ -193,7 +193,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 #STATIC_URL = '/static/'
 
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
@@ -209,9 +209,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Use WhiteNoise for production
 if DEBUG:
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+    STATICFILES_STORAGE = 'django.core.files.storage.FileSystemStorage'
 else:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 # ---------------------------
@@ -248,7 +248,7 @@ else:
 
 
 
-CLOUDINARY_SECURE = True
+#CLOUDINARY_SECURE = True
 
 
 # Default primary key field type
