@@ -190,68 +190,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
+    secure=True
+)
+
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-#STATIC_URL = '/static/'
 
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
-if DEBUG:
-    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-else:
-    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
-# Use WhiteNoise for production
-#if DEBUG:
-#    STATICFILES_STORAGE = 'django.core.files.storage.FileSystemStorage'
-#else:
-#    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-#WHITENOISE_KEEP_ONLY_HASHED_FILES = True
-# ---------------------------
-# Media files (user uploads)
-# ---------------------------
-MEDIA_URL = '/media/'
-
-if 'test' in sys.argv:
-    # Local storage
-    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-#    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-    # Dummy Cloudinary config to avoid template errors
-    cloudinary.config(
-        cloud_name='test',
-        api_key='test',
-        api_secret='test',
-        secure=True
-    )
-else:
-    # Production storage on Cloudinary
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    cloudinary.config(
-        cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
-        api_key=os.environ.get('CLOUDINARY_API_KEY'),
-        api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
-        secure=True
-    )
-
-
-
-
-
-
-
-
-
-#CLOUDINARY_SECURE = True
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
