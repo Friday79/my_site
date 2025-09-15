@@ -218,7 +218,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # ---------------------------
 MEDIA_URL = '/media/'
 
-if 'test' in sys.argv:
+if DEBUG:
     # Local storage
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
