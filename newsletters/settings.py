@@ -247,7 +247,7 @@ else:
 
 
 
-#CLOUDINARY_SECURE = True
+CLOUDINARY_SECURE = True
 
 
 # Default primary key field type
