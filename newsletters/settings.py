@@ -208,17 +208,17 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Use WhiteNoise for production
-#if DEBUG:
-#    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-#else:
-#    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+if DEBUG:
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+else:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # ---------------------------
 # Media files (user uploads)
 # ---------------------------
 MEDIA_URL = '/media/'
 
-if DEBUG:
+if 'test' in sys.argv:
     # Local storage
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
