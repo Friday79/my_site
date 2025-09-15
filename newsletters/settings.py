@@ -213,6 +213,7 @@ if DEBUG:
 else:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 # ---------------------------
 # Media files (user uploads)
 # ---------------------------
