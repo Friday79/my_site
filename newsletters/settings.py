@@ -222,7 +222,7 @@ MEDIA_URL = '/media/'
 if 'test' in sys.argv:
     # Local storage
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
     # Dummy Cloudinary config to avoid template errors
     cloudinary.config(
         cloud_name='test',
