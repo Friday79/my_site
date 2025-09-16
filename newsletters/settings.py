@@ -201,10 +201,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-#if DEBUG:
-#    STATICFILES_STORAGE = 'django.core.files.storage.FileSystemStorage'
-#else:
-#    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+if DEBUG:
+    STATICFILES_STORAGE = 'django.core.files.storage.FileSystemStorage'
+else:
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Use WhiteNoise for production
