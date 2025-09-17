@@ -14,13 +14,15 @@ from pathlib import Path
 import sys
 import os
 from django.contrib.messages import constants as messages
+import cloudinary
+cloudinary.config(secure=True)
 import dj_database_url
 
-# Load env variables first
+
 if os.path.isfile('env.py'):
     import env
 
-import cloudinary
+
 
 # Configure Cloudinary after env is loaded
 #cloudinary.config(cloudinary_url=os.environ.get('CLOUDINARY_URL'), secure=True)
@@ -37,7 +39,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 
@@ -191,64 +193,21 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-#STATIC_URL = '/static/'
-
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
+#STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 if DEBUG:
-    STATICFILES_STORAGE = 'django.core.files.storage.FileSystemStorage'
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 else:
-    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
-# Use WhiteNoise for production
-#if DEBUG:
-#    STATICFILES_STORAGE = 'django.core.files.storage.FileSystemStorage'
-#else:
-#    STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-#WHITENOISE_KEEP_ONLY_HASHED_FILES = True
-# ---------------------------
-# Media files (user uploads)
-# ---------------------------
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 MEDIA_URL = '/media/'
+CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
+SECRET_KEY = os.getenv('SECRET_KEY')
+DATABASE_URL = os.getenv('DATABASE_URL')
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-if 'test' in sys.argv:
-    # Local storage
-    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-#    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-    # Dummy Cloudinary config to avoid template errors
-    cloudinary.config(
-        cloud_name='test',
-        api_key='test',
-        api_secret='test',
-        secure=True
-    )
-else:
-    # Production storage on Cloudinary
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    cloudinary.config(
-        cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
-        api_key=os.environ.get('CLOUDINARY_API_KEY'),
-        api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
-        secure=True
-    )
-
-
-
-
-
-
-
-
-
-#CLOUDINARY_SECURE = True
+CLOUDINARY_SECURE = True
 
 
 # Default primary key field type
