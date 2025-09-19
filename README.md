@@ -125,6 +125,9 @@ This project is a full-stack web application, designed to allow users to post, r
 ## Validation HTML with source page enter on W3C validation
 - ![image](https://github.com/user-attachments/assets/1b5322a0-ccde-4077-b59c-8609bb619705)
 
+## Validation PEP8.
+- ![image](https://github.com/user-attachments/assets/59cb9b46-88f6-4815-a0c5-d5bed61a780b)
+
 ## Forms:
 - Validate form inputs for creating/editing posts and comments.
 ##Navigation:
