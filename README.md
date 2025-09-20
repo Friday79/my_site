@@ -151,16 +151,17 @@ Post and comment management
 - Wireframes:
 ## Desktop Nav Bar View.
 - +----------------------------------------------------------------------------------+
-| Newsletters|blog               Home   Travel   Health   Technology   Science     |
-|                                                                 Create Post Logout|
-+----------------------------------------------------------------------------------+
+- | Newsletters|blog               Home   Travel   Health   Technology   Science     |
+- |                                                                 Create Post Logout|
+- +----------------------------------------------------------------------------------+
 
 ## Mobile Nav Bar View.
 - +------------------------------------------------+
 - | Newsletters|blog                    ☰ (menu)   |
 - +------------------------------------------------+
                  ↓ Dropdown (on click) ↓
-- --------------------------------------------------
+
+- +--------------------------------------------------
 - | Home                                            |
 - | Travel                                          |
 - | Health                                          |
@@ -168,116 +169,116 @@ Post and comment management
 - | Science                                         |
 - | Create Post                                     |
 - | Logout                                          |
-- --------------------------------------------------
+- +--------------------------------------------------
 
 ## Creating post on large screen View.
 - +--------------------------------------------------------------------------------+
-| Navbar: Newsletters | blog   Home  Travel  Health  Tech  Science   Create Logout |
-+--------------------------------------------------------------------------------+
-|                                  Create New Post                               |
-| Title:   [__________________________]                                          |
-| Slug:    [__________________________]                                          |
-| Category:[__________▼]                                                         |
-| Image:   [Choose File]                                                         |
-| Excerpt: [___________________________________________________________]         |
-| Content: [___________________________________________________________]         |
-|          [___________________________________________________________]         |
-| Status:  [ Draft ▼ ]                                                           |
-|                                                                                |
-|                        [ Publish Button ]                                      |
-+--------------------------------------------------------------------------------+
-| Footer: Made by us | Social icons [FB][TW][IG][YT] | Subscribe [____][Button]  |
-+--------------------------------------------------------------------------------+
+- | Navbar: Newsletters | blog   Home  Travel  Health  Tech  Science   Create Logout |
+- +--------------------------------------------------------------------------------+
+- |                                  Create New Post                               |
+- | Title:   [__________________________]                                          |
+- | Slug:    [__________________________]                                          |
+- | Category:[__________▼]                                                         |
+- | Image:   [Choose File]                                                         |
+- | Excerpt: [___________________________________________________________]         |
+- | Content: [___________________________________________________________]         |
+- |          [___________________________________________________________]         |
+- | Status:  [ Draft ▼ ]                                                           |
+- |                                                                                |
+- |                        [ Publish Button ]                                      |
+- +--------------------------------------------------------------------------------+
+- | Footer: Made by us | Social icons [FB][TW][IG][YT] | Subscribe [____][Button]  |
+- +--------------------------------------------------------------------------------+
 
 ## Creating post on Mobile view.
 - +------------------------------------------------+
-| Navbar: Logo | ☰                                |
-+------------------------------------------------+
-|                Create New Post                 |
-| Title:   [_____________]                        |
-| Slug:    [_____________]                        |
-| Category:[____▼]                                |
-| Image:   [Choose File]                          |
-| Excerpt: [_____________]                        |
-|          [_____________]                        |
-| Content: [_____________]                        |
-|          [_____________]                        |
-| Status:  [ Draft ▼ ]                            |
-|                                                |
-|            [ Publish Button ]                  |
-+------------------------------------------------+
-| Footer: Made by us                             |
-| [FB][TW][IG][YT]                               |
-| Subscribe: [____ Enter email ____][Subscribe]  |
-+------------------------------------------------+
+- | Navbar: Logo | ☰                                |
+- +------------------------------------------------+
+- |                Create New Post                 |
+- | Title:   [_____________]                        |
+- | Slug:    [_____________]                        |
+- | Category:[____▼]                                |
+- | Image:   [Choose File]                          |
+- | Excerpt: [_____________]                        |
+- |          [_____________]                        |
+- | Content: [_____________]                        |
+- |          [_____________]                        |
+- | Status:  [ Draft ▼ ]                            |
+- |                                                |
+- |            [ Publish Button ]                  |
+- +------------------------------------------------+
+- | Footer: Made by us                             |
+- | [FB][TW][IG][YT]                               |
+- | Subscribe: [____ Enter email ____][Subscribe]  |
+- +------------------------------------------------+
 
 ## Home page for large screen.
 - +--------------------------------------------------------------------------------+
-| Navbar: Newsletters | blog   Home Travel Health Tech Science   Register Login  |
-+--------------------------------------------------------------------------------+
-|                             Browse by Category                                |
-+--------------------------------------------------------------------------------+
-| [Image]  Author: Friday   Title: Risk with gmos                               |
-|          Short excerpt text...                                                |
-|          Date, Time   ♥ count                                                 |
-+--------------------------------------------------------------------------------+
-| [Image]  Author: Friday   Title: Gmos and Evolution                           |
-|          Short excerpt text...                                                |
-|          Date, Time   ♥ count                                                 |
-+--------------------------------------------------------------------------------+
-| [Image]  Author: Friday   Title: Herbal medicine supplement                   |
-|          Short excerpt text...                                                |
-|          Date, Time   ♥ count                                                 |
-+--------------------------------------------------------------------------------+
-| [Image]  Author: Friday   Title: Old method of Agriculture                    |
-|          Short excerpt text...                                                |
-|          Date, Time   ♥ count                                                 |
-+--------------------------------------------------------------------------------+
-| [Image]  Author: Friday   Title: Sustainable Agriculture                      |
-|          Short excerpt text...                                                |
-|          Date, Time   ♥ count                                                 |
-+--------------------------------------------------------------------------------+
-| [Image]  Author: Friday   Title: Robotic and manufacturing                    |
-|          Short excerpt text...                                                |
-|          Date, Time   ♥ count                                                 |
-+--------------------------------------------------------------------------------+
-| Pagination: < PREV   NEXT >                                                   |
-+--------------------------------------------------------------------------------+
-| Footer: Made by us | Social icons [FB][TW][IG][YT] | Subscribe bar            |
-+--------------------------------------------------------------------------------+
+- | Navbar: Newsletters | blog   Home Travel Health Tech Science   Register Login  |
+- +--------------------------------------------------------------------------------+
+- |                             Browse by Category                                |
+- +--------------------------------------------------------------------------------+
+- | [Image]  Author: Friday   Title: Risk with gmos                               |
+- |          Short excerpt text...                                                |
+- |          Date, Time   ♥ count                                                 |
+- +--------------------------------------------------------------------------------+
+- | [Image]  Author: Friday   Title: Gmos and Evolution                           |
+- |          Short excerpt text...                                                |
+- |          Date, Time   ♥ count                                                 |
+- +--------------------------------------------------------------------------------+
+- | [Image]  Author: Friday   Title: Herbal medicine supplement                   |
+- |          Short excerpt text...                                                |
+- |          Date, Time   ♥ count                                                 |
+- +--------------------------------------------------------------------------------+
+- | [Image]  Author: Friday   Title: Old method of Agriculture                    |
+- |          Short excerpt text...                                                |
+- |          Date, Time   ♥ count                                                 |
+- +--------------------------------------------------------------------------------+
+- | [Image]  Author: Friday   Title: Sustainable Agriculture                      |
+- |          Short excerpt text...                                                |
+- |          Date, Time   ♥ count                                                 |
+- +--------------------------------------------------------------------------------+
+- | [Image]  Author: Friday   Title: Robotic and manufacturing                    |
+- |          Short excerpt text...                                                |
+- |          Date, Time   ♥ count                                                 |
+- +--------------------------------------------------------------------------------+
+- | Pagination: < PREV   NEXT >                                                   |
+- +--------------------------------------------------------------------------------+
+- | Footer: Made by us | Social icons [FB][TW][IG][YT] | Subscribe bar            |
+- +--------------------------------------------------------------------------------+
 
 ## Home page for mobile screen.
 - +------------------------------------------------+
-| Navbar: Logo | ☰                                |
-+------------------------------------------------+
-|            Browse by Category                  |
-+------------------------------------------------+
-| [no Image]                                        |
-| Author: Friday                                 |
-| Title: Risk with gmos                          |
-| Short excerpt text...                          |
-| Date, Time   ♥ count                           |
-+------------------------------------------------+
-| [no Image]                                        |
-| Author: Friday                                 |
-| Title: Gmos and Evolution                      |
-| Short excerpt text...                          |
-| Date, Time   ♥ count                           |
-+------------------------------------------------+
-| [no Image]                                        |
-| Author: Friday                                 |
-| Title: Herbal medicine supplement              |
-| Short excerpt text...                          |
-| Date, Time   ♥ count                           |
-+------------------------------------------------+
-| ... (Remaining posts stacked vertically)       |
-+------------------------------------------------+
-| Pagination: < PREV   NEXT >                    |
-+------------------------------------------------+
-| Footer: Made by us                             |
-| [FB][TW][IG][YT]                               |
-| Subscribe: [____ Enter email ____][Subscribe]  |
-+------------------------------------------------+
+- | Navbar: Logo | ☰                                |
+- +------------------------------------------------+
+- |            Browse by Category                  |
+- +------------------------------------------------+
+- | [no Image]                                        |
+- | Author: Friday                                 |
+- | Title: Risk with gmos                          |
+- | Short excerpt text...                          |
+- | Date, Time   ♥ count                           |
+- +------------------------------------------------+
+. | [no Image]                                        |
+- | Author: Friday                                 |
+- | Title: Gmos and Evolution                      |
+- | Short excerpt text...                          |
+- | Date, Time   ♥ count                           |
+- +------------------------------------------------+
+- | [no Image]                                        |
+- | Author: Friday                                 |
+- | Title: Herbal medicine supplement              |
+- | Short excerpt text...                          |
+- | Date, Time   ♥ count                           |
+- +------------------------------------------------+
+- | ... (Remaining posts stacked vertically)       |
+- +------------------------------------------------+
+- | Pagination: < PREV   NEXT >                    |
+- +------------------------------------------------+
+- | Footer: Made by us                             |
+- | [FB][TW][IG][YT]                               |
+- | Subscribe: [____ Enter email ____][Subscribe]  |
+- +------------------------------------------------+
 
 - Navbar: Dark background with orange highlight on "letters" (logo). Active page (Home) underlined/white.
 
