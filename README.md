@@ -1,5 +1,5 @@
 ## Project Overview
-This project is a full-stack web application, designed to allow users to post, read, edit, comment, and interact with news stories in a Reddit-style format. The site aims to foster a community where users can discuss news topics.Users can upvote/downvote posts, and categorize content by topics. To run the server in the terminal,  writing python3 manage.py runserver and open the  browser. To access the admin panel, put slash(/)after the url of the page and write admin. In the top left corner of the home page,is the title Newsletters which when click upon it will return you to the home page, if you are not on home page. Click on  Register on the navbar if you are not a register user and then login to access the the page.To write a comment, upvote/downvote or update/delete post, first click on the post title, then post details will appear where you vote and comment can also edit or delete post. Then click on home or Newsletters to go back to the home page. On the admin page, click on post. On the right corner click add to add a post, fill the blank form ,then add image and savs. On admin panel, click on comment to see the comments, then you can approve the comments in the Admin page.
+This project is a full-stack web application, designed to allow users to post, read, edit, comment, and interact with news stories in a Reddit-style format. The site aims to foster a community where users can discuss news topics.Users can upvote/downvote posts, and categorize content by topics. To run the server in the terminal,  writing python3 manage.py runserver and open the  browser. To access the admin panel, put slash(/)after the url of the page and write admin. In the top left corner of the home page,is the title Newsletters which when click upon it will return you to the home page, if you are not on home page. Click on  Register on the navbar if you are not a register user and then login to access the the page.To write a comment, upvote/downvote or update/delete post, first click on the post title, then post details will appear where you vote and comment can also edit or delete post. Then click on home or Newsletters to go back to the home page. On the admin page, click on post. On the right corner click add to add a post, fill the blank form ,then add image and save. On admin panel, click on comment to see the comments, then you can approve the comments in the Admin page.
 
 ![image](https://github.com/user-attachments/assets/4ffc207e-5446-4c08-b7d6-431deec8cfa1)
 
@@ -74,7 +74,7 @@ This project is a full-stack web application, designed to allow users to post, r
 1. Clone the repository:
 -  git clone <repository_url>
 2. Navigate to the project directory:
- . cd restaurant
+ . cd newsletters
 3. Create and activate a virtual environment:
 . python3 -m venv env
 . source env/bin/activate  # On Windows: env\Scripts\activate
@@ -157,18 +157,18 @@ Post and comment management
 
 ## Mobile Nav Bar View.
 - +------------------------------------------------+
-| Newsletters|blog                    ☰ (menu)   |
-+------------------------------------------------+
+- | Newsletters|blog                    ☰ (menu)   |
+- +------------------------------------------------+
                  ↓ Dropdown (on click) ↓
---------------------------------------------------
-| Home                                            |
-| Travel                                          |
-| Health                                          |
-| Technology                                      |
-| Science                                         |
-| Create Post                                     |
-| Logout                                          |
---------------------------------------------------
+- --------------------------------------------------
+- | Home                                            |
+- | Travel                                          |
+- | Health                                          |
+- | Technology                                      |
+- | Science                                         |
+- | Create Post                                     |
+- | Logout                                          |
+- --------------------------------------------------
 
 ## Creating post on large screen View.
 - +--------------------------------------------------------------------------------+
