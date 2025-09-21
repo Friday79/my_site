@@ -181,7 +181,7 @@ if DEBUG:
     )
 else:
     STATICFILES_STORAGE = (
-        'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+        'django.contrib.staticfiles.storage.StaticFilesStorage'
     )
 
 MEDIA_URL = '/media/'
